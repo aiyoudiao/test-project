@@ -62,6 +62,7 @@ export const exportPDF = async (title: string, ele: HTMLDivElement | null): Prom
       }
     }
     console.log(title, pdf.output('datauristring', { filename: `${title}.pdf` }))
+    console.log(pdf.output('bloburi'))
     // viewPdf(pdf.output('datauristring', { filename: `${title}.pdf` }))
     window.open(pdf.output('bloburi'), '_blank')
     // window.open(pdf.output('datauristring', { filename: `${title}.pdf` }), '_blank')
