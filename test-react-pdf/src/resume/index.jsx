@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Text,
   Font,
@@ -7,12 +7,16 @@ import {
   Image,
   Document,
   StyleSheet,
-} from '@react-pdf/renderer';
+  renderToFile,
+  renderToStream,
+  renderToString,
+} from "@react-pdf/renderer";
 
-import Header from './Header';
-import Skills from './Skills';
-import Education from './Education';
-import Experience from './Experience';
+import Header from "./Header";
+import Skills from "./Skills";
+import Education from "./Education";
+import Experience from "./Experience";
+import quijote2 from "../assets/quijote2.png";
 
 const styles = StyleSheet.create({
   page: {
@@ -20,71 +24,74 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    flexDirection: 'row',
-    '@media max-width: 400': {
-      flexDirection: 'column',
+    flexDirection: "row",
+    "@media max-width: 400": {
+      flexDirection: "column",
     },
   },
   image: {
     marginBottom: 10,
   },
   leftColumn: {
-    flexDirection: 'column',
+    flexDirection: "column",
     width: 170,
     paddingTop: 30,
     paddingRight: 15,
-    '@media max-width: 400': {
-      width: '100%',
+    "@media max-width: 400": {
+      width: "100%",
       paddingRight: 0,
     },
-    '@media orientation: landscape': {
+    "@media orientation: landscape": {
       width: 200,
     },
   },
   footer: {
     fontSize: 12,
-    fontFamily: 'Lato Bold',
-    textAlign: 'center',
+    fontFamily: "Lato Bold",
+    textAlign: "center",
     marginTop: 15,
     paddingTop: 5,
     borderWidth: 3,
-    borderColor: 'gray',
-    borderStyle: 'dashed',
-    '@media orientation: landscape': {
+    borderColor: "gray",
+    borderStyle: "dashed",
+    "@media orientation: landscape": {
       marginTop: 10,
     },
   },
 });
 
 Font.register({
-  family: 'Open Sans',
+  family: "Open Sans",
   src: `https://fonts.gstatic.com/s/opensans/v17/mem8YaGs126MiZpBA-UFVZ0e.ttf`,
 });
 
 Font.register({
-  family: 'Lato',
+  family: "Lato",
   src: `https://fonts.gstatic.com/s/lato/v16/S6uyw4BMUTPHjx4wWw.ttf`,
 });
 
 Font.register({
-  family: 'Lato Italic',
+  family: "Lato Italic",
   src: `https://fonts.gstatic.com/s/lato/v16/S6u8w4BMUTPHjxsAXC-v.ttf`,
 });
 
 Font.register({
-  family: 'Lato Bold',
+  family: "Lato Bold",
   src: `https://fonts.gstatic.com/s/lato/v16/S6u9w4BMUTPHh6UVSwiPHA.ttf`,
 });
 
-const Resume = props => (
+const Resume = (props) => (
   <Page {...props} style={styles.page}>
     <Header />
     <View style={styles.container}>
       <View style={styles.leftColumn}>
-        <Image
+        <Text>11111111111</Text>
+        {/* <Image
           src="https://react-pdf.org/static/images/luke.jpg"
           style={styles.image}
-        />
+        /> */}
+        <Image src={"/quijote1.jpg"} style={styles.image} />
+        <Image src={quijote2} style={styles.image} />
         <Education />
         <Skills />
       </View>
